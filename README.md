@@ -7,7 +7,7 @@ This application utilises:
 
 * [ReactJS](https://reactjs.org/)
 * [Recharts](https://recharts.org/) for graphing tools
-* [pomber/covid19](https://github.com/pomber/covid19) for COVID19 data source.
+* [pomber/covid19](https://github.com/pomber/covid19) for COVID19 data source
 
 ## Getting started
 

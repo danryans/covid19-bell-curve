@@ -20,6 +20,19 @@ const getCountry = () => {
   return countryParameter !== null ? countryParameter : defaultCountry;
 }
 
+// Adjusts each days entry with current covid cases
+const correctCaseValues = (values) => {
+  // Iterate each day and generate new active cases
+  for (let day of values) {
+    const active = Math.max(0, day.confirmed - day.deaths - day.recovered);
+
+    day.active = active;
+  }
+
+  // return new collection of values
+  return values;
+}
+
 // Entry point
 const Chart = () => {
   const [data, setData] = useState([]);
@@ -29,15 +42,16 @@ const Chart = () => {
     // Get country
     const selectedCountry = getCountry();
 
-    // Fetch data
+    // Fetch data, normalise values and set graph value to be based on confirmed cases
     getCovidData()
-      .then(response => setData(response[selectedCountry]))
+      .then(response => correctCaseValues(response[selectedCountry]))
+      .then(response => setData(response));
   }, []);
 
   return (
     <ResponsiveContainer>
       <LineChart margin={{top: 0, right: 0, bottom: 0, left: 0}} data={data}>
-        <Line type="monotone" dot={false} name="date" dataKey="confirmed" stroke="#ffa000" strokeWidth={3} />
+        <Line type="monotone" dot={false} name="date" dataKey="active" stroke="#ffa000" strokeWidth={3} />
         <Tooltip content={<PointTooltip />}/>
       </LineChart>
     </ResponsiveContainer>
