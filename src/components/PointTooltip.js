@@ -6,7 +6,7 @@ import './PointTooltip.css';
 const PointTooltip = ({ active, payload }) => 
   active && payload && payload.length ?
     <div className="tooltip">
-      {payload[0].payload.confirmed} cases
+      {payload[0].payload.active} cases
       <Date date={payload[0].payload.date} />
     </div>
   : <></>

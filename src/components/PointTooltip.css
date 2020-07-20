@@ -1,13 +1,13 @@
 /* custom tooltips */
 .tooltip {
-    background-color: #ffa000;
-    color: #000;
-    padding: 8px;
-    font-weight: bold;
-  }
-  .tooltip > div {
-    margin-top: 4px;
-    font-size: 12px;
-    text-align: center;
-    font-weight: normal;
-  }
+  background-color: #ffa000;
+  color: #000;
+  padding: 8px;
+  font-weight: bold;
+}
+.tooltip > div {
+  margin-top: 4px;
+  font-size: 12px;
+  text-align: center;
+  font-weight: normal;
+}

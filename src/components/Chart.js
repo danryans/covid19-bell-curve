@@ -42,7 +42,7 @@ const Chart = () => {
     // Get country
     const selectedCountry = getCountry();
 
-    // Fetch data, normalise values and set graph value to be based on confirmed cases
+    // Fetch data, normalise values and set graph value to be based on active cases
     getCovidData()
       .then(response => correctCaseValues(response[selectedCountry]))
       .then(response => setData(response));
